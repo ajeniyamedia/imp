@@ -1,0 +1,74 @@
+  <div class="footer-wrapper">
+    <div class="footer-top-contact" [ngClass]="{
+      'footer-top-contact': deviceXs === false,
+      'footer-top-contact-mobile': deviceXs === true
+      }">
+      <div class="contact-list">
+        <div>
+          <div class="site-name-footer-class">
+            <p>Integrated Technology Laboratory LLC</p>
+            <p>© 2020 Intela. All rights reserved.</p>
+          </div>
+        </div>
+        <div>
+          <div>
+            <p>10225-147 St. Edmonton Alberta T5N 3C </p>
+            <p>+1.866.746.8352 (866 7INTELA)</p>
+          </div>
+        </div>
+        <div>
+          <p>Terms and conditions,</p>
+          <p>Privacy Policy</p>
+        </div>
+      </div>
+    </div>
+    <div [ngClass]="{
+      'footer-link': deviceXs === false,
+      'footer-link-mobile': deviceXs === true
+      }">
+      <div class="contact-link">
+        <div>
+          <ul class="support-learn">
+            <li><b>LEARN</b></li>
+            <li>Degree</li>
+            <li>Programs/Courses</li>
+            <li>Admissions</li>
+            <li>Tuition and Financial</li>
+            <li>Aid</li>
+            <li>For Employers</li>
+            <li>About</li>
+          </ul>
+        </div>
+        <div>
+          <ul class="support-link">
+            <li>
+              <b>SUPPORT</b>
+            </li>
+            <li>Career Services</li>
+            <li>Student Resources</li>
+            <li>Annual Security Policy</li>
+            <li>Accessibility</li>
+          </ul>
+        </div>
+        <div>
+          <span class="site-email">info@intela.io</span>
+        </div>
+        <div>
+          <div class="footerLogo-wrapper">
+            <img src="/assets/footerLogo.png" alt="Footer company logo">
+          </div>
+
+          <div [ngClass]="{
+            'social-link-wrapper': deviceXs === false,
+            'social-link-wrapper-mobile': deviceXs === true
+            }">
+            <ul>
+              <li><img src="/assets/social/fecebook.png" alt="Facebook logo"></li>
+              <li><img src="/assets/social/linkdlin.png" alt="Linkdin logo"></li>
+              <li><img src="/assets/social/twitter.png" alt="Twitter logo"></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

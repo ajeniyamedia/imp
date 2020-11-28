@@ -1,0 +1,131 @@
+<!-- This is the section for site top banner -->
+<div>
+    <div class="form-container">
+        <div class="form-wrapper">
+          <div class="form-header-title">
+              <h1 class="form-title">start your journey</h1>
+            <!-- form content start here -->
+              <div class="form-content">
+                <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                    <input type="text" formControlName="firstName" class="form-control-style"
+                    placeholder="First Name"
+                    [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                    <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                        <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                    </div>
+
+                    <input type="text" formControlName="lastName" class="form-control-style"
+                    placeholder="Last Name"
+                    [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+                    <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                        <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                    </div>
+
+                    <input type="email" formControlName="email" class="form-control-style"
+                    placeholder="Your Email"
+                    [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Email is required</div>
+                        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                    </div>
+
+                    <input type="number" formControlName="yourNumber" class="form-control-style"
+                    placeholder="Your Number"
+                    [ngClass]="{ 'is-invalid': submitted && f.yourNumber.errors }" />
+                    <div *ngIf="submitted && f.yourNumber.errors" class="invalid-feedback">
+                        <div *ngIf="f.yourNumber.errors.required">Your number is required</div>
+                    </div>
+
+                    <select formControlName="intrestedIn" class="form-control-dropdown-style">
+                        <option class="option" value="" selected disabled hidden>I'm intrested in</option>
+                        <option class="option" value="saab">Saab</option>
+                        <option class="option" value="mercedes">Mercedes</option>
+                        <option class="option" value="audi">Audi</option>
+                    </select>
+                    <div *ngIf="submitted && f.intrestedIn.errors" class="invalid-feedback">
+                        <div *ngIf="f.intrestedIn.errors.required">Select your intrest is required</div>
+                    </div>
+
+                    <div class="form-group-">
+                        <button class="btn-register">Submit</button>
+                    </div>
+                </form>
+              </div>
+            <!-- form content end here -->
+
+          </div>
+        </div>
+
+        <div class="flex-child" *ngIf="!deviceXs">
+            <img src="/assets/form-side-image.jpg" alt="image">
+        </div>
+
+    </div>
+  </div>
+
+<!-- This is the section for site information -->
+<div>
+<div class="site-info">
+    <div class="site-info-image" *ngIf="!deviceXs">
+        <img src="/assets/siteinfo.jpg">
+    </div>
+    <div class="site-info-text">
+        <div class="info-text-header" *ngIf="!deviceXs">
+            <div class="info-text-header-wrapper">
+                <h1>
+                    {{ siteInfos.infoTitle }}
+                </h1>
+            </div>
+        </div>
+
+        <div class="info-text-header-mobile" *ngIf="deviceXs">
+          <div class="info-text-header-wrapper">
+              <h1>
+                  {{ siteInfos.infoTitle }}
+              </h1>
+          </div>
+        </div>
+
+        <div [ngClass]="{
+          'info-text-content': deviceXs === false,
+          'info-text-content-mobile': deviceXs === true
+          }">
+            {{ siteInfos.description }}
+            <p class="moveup" [ngClass]="{
+              'moveup': deviceXs === false,
+              'moveup-mobile': deviceXs === true
+              }">
+              <img src="/assets/moveup.svg">
+            </p>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- This is the section for site services -->
+<div>
+    <div class="services-wrapper" [ngClass]="{'services-wrapper-mobile': deviceXs === true }">
+        <div class="services">
+            <ul class="services-list"
+            [ngClass]="{
+              'services-list': deviceXs === false,
+              'services-list-block': deviceXs === true
+              }">
+                <li *ngFor="let services of siteservices" style="margin-bottom: 20px;">
+                    <div class="services">
+                        <img src="/assets/{{services.image}}">
+                        <h1>{{services.title}}</h1>
+
+                        <ul>
+                            <li *ngFor="let service of services.content">{{ service }}</li>
+                        </ul>
+
+                        <div class="btn-wrapper">
+                            <button [routerLink]="['/content/']" class="btn-service"> {{ services.buttonText }}</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+  </div>
